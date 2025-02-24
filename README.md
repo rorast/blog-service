@@ -66,3 +66,51 @@ A Go http blog service than using gin grom  viper lumberjack
 - │── README.md              # 項目說明文件
 - │── Makefile               # 常用指令 (建置、測試、自動化流程)
 
+## 7.安裝 viper
+   viper 是一個 Go 語言的設定管理庫，支持多種格式的設定文件，如 JSON、TOML、YAML、HCL、envfile 和 Java properties config files。
+   安裝 viper：
+   go get -u github.com/spf13/viper@v1.4.0
+   go mod tidy
+   
+## 8. 安裝 GORM (有 v1 跟 v2 版本)
+   GORM 是一個 Go 語言的 ORM 框架，支持 MySQL、PostgreSQL、SQLite 和 SQL Server 等多種數據庫。
+   安裝 GORM v1：
+   go get -u github.com/jinzhu/gorm@v1.9.12
+   go get -u github.com/jinzhu/gorm/dialects/mysql@v1.9.16
+   go mod tidy
+   安裝 GORM v2：
+   go get -u gorm.io/gorm@v1.21.12
+   go get -u gorm.io/driver/mysql@v1.5.7
+   go mod tidy
+   
+## 9. 安裝 otelgorm (先用舊版為otgorm)
+   otgorm 是一個 OpenTelemetry 的 GORM 插件，用於收集數據庫操作的性能指標。
+    安裝 otgorm：
+    go get -u github.com/eddycjy/opentracing-gorm
+    go mod tidy
+
+   otelgorm 是一個 OpenTelemetry 的 新版 GORM 插件，用於收集數據庫操作的性能指標。
+   安裝 otelgorm：
+   go get -u go.opentelemetry.io/contrib/instrumentation/gorm.io/gorm/otelgorm@v1.2.0  (指定較舊的穩定版本)
+   go mod tidy (要等安裝完成，才能重整 mod 進行 import)
+   
+## 10. 安裝 Lumberjack
+   Lumberjack 是一個 Go 語言的日誌庫，支持日誌切割、壓縮和清理。
+   安裝 Lumberjack：
+   go get -u gopkg.in/natefinch/lumberjack.v2
+   go mod tidy
+   
+## 11. 安裝 Swagger
+   Swagger 是一個用於設計、構建、文件化和消費 RESTful API 的工具。
+   安裝 Swagger：
+   go get -u github.com/swaggo/swag/cmd/swag@v1.6.5
+   go get -u github.com/swaggo/gin-swagger@v1.2.0
+   go get -u github.com/swaggo/files
+   go get -u github.com/alecthomas/template
+   go mod tidy
+   
+## 12. 安裝 Validator
+   Validator 是一個 Go 語言的驗證庫，支持結構體驗證、自定義驗證規則和多語言錯誤信息。
+   安裝 Validator：
+   go get -u github.com/go-playground/validator/v10
+   go mod tidy
