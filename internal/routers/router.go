@@ -3,10 +3,13 @@ package routers
 import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/rorast/blog-service/docs"
+	"github.com/rorast/blog-service/global"
 	"github.com/rorast/blog-service/internal/middleware"
+	"github.com/rorast/blog-service/internal/routers/api"
 	v1 "github.com/rorast/blog-service/internal/routers/api/v1"
 	"github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"net/http"
 )
 
 func NewRouter() *gin.Engine {
@@ -18,6 +21,9 @@ func NewRouter() *gin.Engine {
 
 	article := v1.NewArticle()
 	tag := v1.NewTag()
+	upload := api.NewUpload()
+	r.POST("/upload/file", upload.UploadFile)
+	r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
 	apiv1 := r.Group("/api/v1")
 	{
 		apiv1.POST("/tags", tag.Create)

@@ -114,3 +114,11 @@ A Go http blog service than using gin grom  viper lumberjack
    安裝 Validator：
    go get -u github.com/go-playground/validator/v10
    go mod tidy
+   
+## 13. 測試檔案上傳方式
+   透過 Postman 測試檔案上傳方式：
+   命令列測試 : curl -X POST http://127.0.0.1:8000/upload/file -F file=@{file_path} -F type=1
+   開啟 Postman → 選擇 POST 請求方式 → 輸入 URL（如 http://localhost:8000/upload/file）。
+   點擊 Body → 選擇 form-data → 輸入 Key 為 file  → 選擇 File（如 test.jpg），並點選上傳到 Postman。
+   點擊 Body → 選擇 form-data → 輸入 Key 為 type → 設值為 1。
+   點擊 Send，測試檔案上傳功能。
