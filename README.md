@@ -131,6 +131,12 @@ A Go http blog service than using gin grom  viper lumberjack
 
 ## 15. 安裝 Gomail (寄送郵件)
 -   Gomail 是一個 Go 語言的郵件庫，支持發送郵件。
--  安裝 Gomail：
--  go get -u gopkg.in/gomail.v2
--  go mod tidy
+-   安裝 Gomail：
+-   go get -u gopkg.in/gomail.v2
+-   go mod tidy
+
+## 16. 安裝 限流器 ratelimit
+-   ratelimit 是一個 Go 語言的限流器庫，支持基於內存和 Redis 的限流。
+-   安裝 ratelimit：
+-   go get -u github.com/juju/ratelimit@v1.0.1
+-   go mod tidy
