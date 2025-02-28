@@ -18,14 +18,14 @@ App:
     - .jpeg
     - .png
 Email:
-  Host: smtp.qq.com
+  Host: smtp.gmail.com
   Port: 465
-  UserName: xxx
-  Password: xxx
+  UserName: rorast.power.game@gmail.com
+  Password: jmyi nmnj zghp lalj
   IsSSL: true
-  From: xxx
+  From: rorast.power.game@gmail.com
   To:
-    - xxx
+    - rorast0103@gmail.com
 JWT:
   Secret: eddycjy
   Issuer: blog-service

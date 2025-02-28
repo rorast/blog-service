@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/rorast/blog-service/global"
 	"github.com/rorast/blog-service/internal/service"
@@ -92,6 +93,7 @@ func (a Article) List(c *gin.Context) {
 // @Failure 500 {object} errcode.Error "内部错误"
 // @Router /api/v1/articles [post]
 func (a Article) Create(c *gin.Context) {
+	fmt.Print("路由 Article Create - 文章创建")
 	param := service.CreateArticleRequest{}
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &param)

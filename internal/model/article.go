@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/rorast/blog-service/pkg/app"
 )
@@ -24,6 +25,7 @@ func (a Article) TableName() string {
 }
 
 func (a Article) Create(db *gorm.DB) (*Article, error) {
+	fmt.Print("Article Create - 文章创建")
 	if err := db.Create(&a).Error; err != nil {
 		return nil, err
 	}
