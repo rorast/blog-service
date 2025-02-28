@@ -140,3 +140,10 @@ A Go http blog service than using gin grom  viper lumberjack
 -   安裝 ratelimit：
 -   go get -u github.com/juju/ratelimit@v1.0.1
 -   go mod tidy
+
+## 17. 安裝 鏈路追蹤 opentracing jaeger-client-go
+-   opentracing 是一個 Go 語言的鏈路追蹤庫，支持 Jaeger、Zipkin 和 LightStep 等追蹤系統。
+-  安裝 opentracing：
+- go get -u github.com/opentracing/opentracing-go@v1.2.0
+- go get -u github.com/uber/jaeger-client-go@v2.26.0
+- go mod tidy
