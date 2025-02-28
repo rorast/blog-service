@@ -107,6 +107,7 @@ func (l *Logger) WithCallersFrames() *Logger {
 	return ll
 }
 
+// 這邊對日誌方法進行破壞性修改，將日誌方法的入參改為 context.Context 類型
 func (l *Logger) WithTrace() *Logger {
 	ginCtx, ok := l.ctx.(*gin.Context)
 	if ok {

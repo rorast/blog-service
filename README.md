@@ -147,3 +147,9 @@ A Go http blog service than using gin grom  viper lumberjack
 - go get -u github.com/opentracing/opentracing-go@v1.2.0
 - go get -u github.com/uber/jaeger-client-go@v2.26.0
 - go mod tidy
+
+## 18. 實現 SQL 追蹤
+   實現 SQL 追蹤，需要安裝 opentracing 和 gorm。
+-  安裝 opentracing-gorm:
+-  go get -u github.com/eddycjy/opentracing-gorm
+-  go mod tidy

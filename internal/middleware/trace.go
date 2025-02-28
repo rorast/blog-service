@@ -1,6 +1,5 @@
 package middleware
 
-import "C"
 import (
 	"context"
 
@@ -31,6 +30,8 @@ func Tracing() func(c *gin.Context) {
 
 		var traceID string
 		var spanID string
+		// 通過對 spanContext 的 jaeger.SpanContext 類型進行斷言，獲取 traceID 和 spanID,
+		// 並將其設置到 gin.Context 中 (將其注冊到了上下文的元數據中)
 		var spanContext = span.Context()
 		switch spanContext.(type) {
 		case jaeger.SpanContext:

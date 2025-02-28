@@ -1,0 +1,1 @@
+2025/02/28 23:51:17 {"callers":["C:/Users/roras/GolandProjects/blog-service/main.go: 34 main.init.0"],"level":"error","message":"svc.CheckAuth err: invalid connection","span_id":"6437b6155b11de43","time":1740757877987802100,"trace_id":"6437b6155b11de43"}
