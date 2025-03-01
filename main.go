@@ -16,6 +16,7 @@ import (
 	"time"
 )
 
+// 增加版本信息
 var (
 	port      string
 	runMode   string
@@ -148,6 +149,7 @@ func setupFlag() error {
 	flag.StringVar(&port, "port", "", "启动端口")
 	flag.StringVar(&runMode, "mode", "", "启动模式")
 	flag.StringVar(&config, "config", "configs/", "指定要使用的配置文件路径")
+	// 增加版本信息
 	flag.BoolVar(&isVersion, "version", false, "显示版本信息")
 	flag.Parse()
 	if isVersion {

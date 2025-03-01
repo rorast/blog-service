@@ -167,4 +167,16 @@ A Go http blog service than using gin grom  viper lumberjack
 - 安裝 fsnotify：
 - go get -u golang.org/x/sys/...
 - go get -u github.com/fsnotify/fsnotify
-- 
+- go mod tidy
+
+## 21. 安裝 UPX (可執行文件壓縮) 
+-   UPX 是一個可執行文件壓縮工具，支持多種操作系統。
+- 安裝 UPX：https://github.com/upx/upx
+- 下載 UPX：https://upx.github.io/
+- 使用 : upx -9 -o blog-service blog-service (壓縮 blog-service 可執行文件)
+  - 簡單使用 : upx blog-service (已編譯出執行檔)
+
+## 22. 編譯附帶版本信息
+-   透過 go build 編譯時附帶版本信息：
+-  go build -ldflags "-X main.Version=1.0.0 -X 'main.BuildTime=`date`' -X 'main.GoVersion=`go version`'"
+-  使用 : go build -ldflags "-X main.appName=Go Blog API" -o blog-service main.go
