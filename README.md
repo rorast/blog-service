@@ -161,3 +161,10 @@ A Go http blog service than using gin grom  viper lumberjack
 - go mod tidy
 - 執行 go-bindata -o config/config.go -pkg=configs configs/config.yaml (將 configs/ 目錄下的所有文件打包到 data.go 中)
 - 執行以上程式後通過代碼 b, _ := Asset("config/config.yaml") 可以獲取到文件內容。
+
+## 20. 安裝 fsnotify (文件變更監控) 跨平台文件系統監聽事件庫
+-   fsnotify 是一個 Go 語言的文件變更監控庫，支持跨平台文件系統監聽事件。
+- 安裝 fsnotify：
+- go get -u golang.org/x/sys/...
+- go get -u github.com/fsnotify/fsnotify
+- 

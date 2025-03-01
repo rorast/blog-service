@@ -25,11 +25,13 @@ func NewSetting(configs ...string) (*Setting, error) {
 		return nil, err
 	}
 
+	// 設置熱更新文件的預設值
 	s := &Setting{vp}
 	s.WatchSettingChange()
 	return s, nil
 }
 
+// 文件熱更新的監聽和變更
 func (s *Setting) WatchSettingChange() {
 	go func() {
 		s.vp.WatchConfig()
