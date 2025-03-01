@@ -153,3 +153,11 @@ A Go http blog service than using gin grom  viper lumberjack
 -  安裝 opentracing-gorm:
 -  go get -u github.com/eddycjy/opentracing-gorm
 -  go mod tidy
+
+## 19. 安裝 go-bindata (資源打包) 可將數據文件轉換為 Go 代碼 (正常go編譯是不會將數據文件打包進去的)
+-   go-bindata 是一個 Go 語言的資源打包工具，支持將數據文件轉換為 Go 代碼。
+-  安裝 go-bindata：
+- go get -u github.com/go-bindata/go-bindata/...
+- go mod tidy
+- 執行 go-bindata -o config/config.go -pkg=configs configs/config.yaml (將 configs/ 目錄下的所有文件打包到 data.go 中)
+- 執行以上程式後通過代碼 b, _ := Asset("config/config.yaml") 可以獲取到文件內容。

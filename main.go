@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/gin-gonic/gin"
 	"github.com/rorast/blog-service/global"
 	"github.com/rorast/blog-service/internal/model"
@@ -39,7 +40,7 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupTracer err: %v", err)
 	}
-
+	setupFlag()
 }
 
 // @title 博客系统
@@ -67,6 +68,7 @@ func main() {
 }
 
 func setupSetting() error {
+	// 對 ServerSetting配置項進行覆寫，使其優先級最高
 	s, err := setting.NewSetting(strings.Split(config, ",")...)
 	if err != nil {
 		return err
@@ -140,4 +142,18 @@ func setupTracer() error {
 	global.Tracer = jaegerTracer
 	return nil
 
+}
+
+func setupFlag() error {
+	flag.StringVar(&port, "port", "", "启动端口")
+	flag.StringVar(&runMode, "mode", "", "启动模式")
+	flag.StringVar(&config, "config", "configs/", "指定要使用的配置文件路径")
+	flag.BoolVar(&isVersion, "version", false, "显示版本信息")
+	flag.Parse()
+	if isVersion {
+		//fmt.Printf("build time: %s\n", BuildTime)
+		//fmt.Printf("build git commit: %s\n", GitCommit)
+		//os.Exit(0)
+	}
+	return nil
 }
