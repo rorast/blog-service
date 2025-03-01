@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/rorast/blog-service/global"
 	"github.com/rorast/blog-service/internal/model"
@@ -12,16 +13,20 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 )
 
 // 增加版本信息
 var (
-	port      string
-	runMode   string
-	config    string
-	isVersion bool
+	port         string
+	runMode      string
+	config       string
+	isVersion    bool
+	buildTime    string
+	buildVersion string
+	gitCommitID  string
 )
 
 func init() {
@@ -153,9 +158,10 @@ func setupFlag() error {
 	flag.BoolVar(&isVersion, "version", false, "显示版本信息")
 	flag.Parse()
 	if isVersion {
-		//fmt.Printf("build time: %s\n", BuildTime)
-		//fmt.Printf("build git commit: %s\n", GitCommit)
-		//os.Exit(0)
+		fmt.Printf("build time: %s\n", buildTime)
+		fmt.Printf("build version: %s\n", buildVersion)
+		fmt.Printf("build git commit: %s\n", gitCommitID)
+		os.Exit(0)
 	}
 	return nil
 }

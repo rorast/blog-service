@@ -180,3 +180,24 @@ A Go http blog service than using gin grom  viper lumberjack
 -   透過 go build 編譯時附帶版本信息：
 -  go build -ldflags "-X main.Version=1.0.0 -X 'main.BuildTime=`date`' -X 'main.GoVersion=`go version`'"
 -  使用 : go build -ldflags "-X main.appName=Go Blog API" -o blog-service main.go
+-  程式中需加入變數 : 
+   - var (
+   -   buildTime    string
+   -   buildVersion string
+   -   gitCommitID  string
+   - )
+
+   - if isVersion {
+   -   fmt.Printf("build time: %s\n", buildTime)
+   -   fmt.Printf("build version: %s\n", buildVersion)
+   -   fmt.Printf("build git commit: %s\n", gitCommitID)
+   -   os.Exit(0)
+   - }
+- windows PowerShell 下:
+  -  $buildTime = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+  -  $gitCommitID = git rev-parse HEAD
+  -  go build -ldflags "-X 'main.buildTime=$buildTime' -X 'main.buildVersion=1.0.0' -X 'main.gitCommitID=$gitCommitID'"
+- 執行 : ./blog-service --version (查看版本信息)
+  - build time: 2025-03-01 13:25:12
+  - build version: 1.0.0
+  - build git commit: 5914afc2ea2a8bfaa7fdd3113fd07f1ba8060470
