@@ -202,3 +202,9 @@ A Go http blog service than using gin grom  viper lumberjack
   - build version: 1.0.0
   - build git commit: 5914afc2ea2a8bfaa7fdd3113fd07f1ba8060470
   
+## 23. 安裝 git-cz
+- 安裝 git-cz：npm install -g git-cz
+- 使用 : 
+git add . => git commit -m 'first' => git push
+改成
+git add . => git cz => git push
